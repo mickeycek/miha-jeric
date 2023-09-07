@@ -1,0 +1,77 @@
+---
+import Hamburger from "../components/Hamburger.astro";
+import Navigation from "../components/Navigation.astro";
+---
+
+<header>
+  <div id="header-content">
+    <div
+      class="profile-img"
+      style="width: 150px;border-radius:50%; background:black;border: 1px dashed #AB4B08; padding: 10px; overflow:hidden;"
+    >
+      <img src="/images/miha.png" style="width:100%;" />
+    </div>
+    <div
+      class="personal-info"
+      style="text-align:left;display:flex;flex-direction:column; align-items:flex-start; justify-content: center;"
+    >
+      <h1><span>Miha</span>&nbsp;<span>Jerič</span></h1>
+      <h2><span>Software Developer</span></h2>
+    </div>
+  </div>
+  <hr class="small" />
+  <nav id="header-nav">
+    <Hamburger />
+    <Navigation />
+  </nav>
+</header>
+
+<style>
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .header__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .personal-info {
+    text-align: center;
+    transform: scale(0.94);
+    animation: scale 3s forwards cubic-bezier(0.5, 1, 0.89, 1);
+  }
+  @keyframes scale {
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .personal-info span {
+    display: inline-block;
+    opacity: 0;
+    filter: blur(10px);
+  }
+
+  .personal-info h1 span:nth-child(1) {
+    animation: fade-in 0.5s 0.1s forwards cubic-bezier(0.11, 0, 0.5, 0);
+  }
+
+  .personal-info h1 span:nth-child(2) {
+    animation: fade-in 0.5s 0.5s forwards cubic-bezier(0.11, 0, 0.5, 0);
+  }
+
+  .personal-info h2 span:nth-child(1) {
+    animation: fade-in 0.5s 1s forwards cubic-bezier(0.11, 0, 0.5, 0);
+  }
+
+  @keyframes fade-in {
+    100% {
+      opacity: 1;
+      filter: blur(0);
+    }
+  }
+</style>
